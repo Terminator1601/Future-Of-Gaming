@@ -1,6 +1,8 @@
 import Invite from "../components/Invite";
 import FunctionLinker from "../components/FunctionLinker";
+import "tailwindcss/tailwind.css";
 import React, { useEffect, useState } from "react";
+import "../local.css";
 // import axios from 'axios';
 
 const MenuMultiplayerServerBrow = () => {
@@ -46,11 +48,13 @@ const MenuMultiplayerServerBrow = () => {
 
   const fetchRulesData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings/rulesData');
+      const response = await fetch(
+        "http://localhost:5000/api/settings/rulesData"
+      );
       const data = await response.json();
       setRulesData(data.settings); // Assuming data structure includes a 'settings' property
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
   return (
@@ -186,15 +190,16 @@ const MenuMultiplayerServerBrow = () => {
                 </div>
               </div>
               <div className="self-stretch flex flex-row items-start justify-start gap-[8.000000000000009px] max-w-full mq1125:flex-wrap">
-                <div className="flex-1 flex flex-col items-start justify-start pt-0 px-0 pb-[1.4210854715202004e-14px] box-border gap-[27.200000000000003px] min-w-[211px] max-w-full">
-                  <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-[1.5px] box-border max-w-full">
-                    <button className="cursor-pointer [border:none] py-[16.5px] px-5 bg-[transparent] flex-1 flex flex-row items-start justify-center box-border relative max-w-full z-[2]">
-                      <div className="w-[39px] relative text-lg tracking-[0.06em] uppercase font-semibold font-rajdhani text-white text-center inline-block min-w-[39px]">
+                <div className="flex-1  flex flex-col items-start justify-start pt-0 px-0 pb-[1.4210854715202004e-14px] box-border gap-[27.200000000000003px] min-w-[211px] max-w-full">
+                  <div class="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-[1.5px] box-border max-w-full">
+                    <button class=" hover:bg-white text-white hover:text-black cursor-pointer border-none py-[16.5px] px-5 bg-transparent flex-1 flex flex-row items-start justify-center box-border relative max-w-full z-[2]">
+                      <div class=" w-[39px] relative text-lg tracking-[0.06em] uppercase font-semibold font-rajdhani  text-center inline-block min-w-[39px] ">
                         join
                       </div>
-                      <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] box-border opacity-[0.2] z-[1] border-[1px] border-solid border-white" />
+                      <div class="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] box-border opacity-[0.2] z-[1] border-[1px] border-solid border-white"></div>
                     </button>
                   </div>
+
                   <div className="w-[286.1px] flex flex-row items-start justify-between gap-[20px]">
                     <div className="flex flex-col items-start justify-start">
                       <div className="relative tracking-[0.06em] uppercase font-semibold inline-block min-w-[73px] shrink-0 [debug_commit:f6aba90] z-[3]">
@@ -218,9 +223,9 @@ const MenuMultiplayerServerBrow = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 flex flex-col items-start justify-start pt-0 px-0 pb-[1.4210854715202004e-14px] box-border gap-[27.200000000000003px] min-w-[211px] max-w-full">
-                  <button className="cursor-pointer [border:none] py-[16.5px] px-5 bg-[transparent] self-stretch flex flex-row items-start justify-center relative z-[2]">
-                    <div className="w-[81px] relative text-lg tracking-[0.06em] uppercase font-semibold font-rajdhani text-white text-center inline-block min-w-[81px]">
+                <div className=" flex-1 flex flex-col items-start justify-start pt-0 px-0 pb-[1.4210854715202004e-14px] box-border gap-[27.200000000000003px] min-w-[211px] max-w-full">
+                  <button className="hover:bg-white text-white hover:text-black  cursor-pointer [border:none] py-[16.5px] px-5 bg-[transparent] self-stretch flex flex-row items-start justify-center relative z-[2]">
+                    <div className=" w-[81px] relative text-lg tracking-[0.06em] uppercase font-semibold font-rajdhani  text-center inline-block min-w-[81px]">
                       spectate
                     </div>
                     <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] box-border opacity-[0.2] z-[1] border-[1px] border-solid border-white" />
@@ -236,13 +241,13 @@ const MenuMultiplayerServerBrow = () => {
                     </div>
                   </div>
                 </div>
-                <button className="cursor-pointer [border:none] py-[16.5px] px-[74px] bg-[transparent] flex-[0.5432] flex flex-row items-start justify-start box-border relative min-w-[176px] max-w-full z-[2] mq450:pl-5 mq450:pr-5 mq450:box-border mq450:flex-1">
-                  <div className="h-[23px] w-44 relative text-lg tracking-[0.06em] uppercase font-semibold font-rajdhani text-white text-center inline-block">
+                <button className="hover:bg-white text-white hover:text-black  cursor-pointer [border:none] py-[16.5px] px-[74px] bg-[transparent] flex-[0.5432] flex flex-row items-start justify-start box-border relative min-w-[176px] max-w-full z-[2] mq450:pl-5 mq450:pr-5 mq450:box-border mq450:flex-1">
+                  <div className=" h-[23px] w-44 relative text-lg tracking-[0.06em] uppercase font-semibold font-rajdhani  text-center inline-block">
                     join as commander
                   </div>
                   <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] box-border opacity-[0.2] z-[1] border-[1px] border-solid border-white" />
                 </button>
-                <div className="h-14 w-[166px] flex flex-row items-start justify-start pt-[16.5px] px-[44.79999999999998px] pb-[15.5px] box-border relative gap-[2.9px] z-[2]">
+                <div className="hover:bg-white text-white hover:text-black h-14 w-[166px] flex flex-row items-start justify-start pt-[16.5px] px-[44.79999999999998px] pb-[15.5px] box-border relative gap-[2.9px] z-[2]">
                   <div className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] box-border opacity-[0.2] border-[1px] border-solid border-white" />
                   <img
                     className="h-6 w-6 relative min-h-[24px] z-[1]"
@@ -255,7 +260,7 @@ const MenuMultiplayerServerBrow = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[1027.9px] flex flex-row items-start justify-start gap-[27.84999999999998px] max-w-full mq1125:flex-wrap">
+              <div className="overscroll-contain	w-[1027.9px] flex flex-row items-start justify-start gap-[27.84999999999998px] max-w-full mq1125:flex-wrap">
                 <div className="flex-1 flex flex-col items-start justify-start gap-[9.900000000000002px] min-w-[243px] max-w-full">
                   {apiData && (
                     <div className="flex flex-row items-start justify-start py-0 px-[15px]">
@@ -270,7 +275,7 @@ const MenuMultiplayerServerBrow = () => {
                         key={index}
                         className="self-stretch flex flex-col items-start justify-start gap-[5.140000000000001px] shrink-0 [debug_commit:f6aba90] text-base"
                       >
-                        <div className="self-stretch h-[25.9px] flex flex-col items-start justify-start pt-0 px-0 pb-[5.899999999999999px] box-border gap-[5.9px] z-[2]">
+                        <div className="hover:bg-white text-white hover:text-black self-stretch h-[25.9px] flex flex-col items-start justify-start pt-0 px-0 pb-[5.899999999999999px] box-border gap-[5.9px] z-[2]">
                           <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.59999999999991px]">
                             <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
                               <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[51px]">
@@ -292,15 +297,17 @@ const MenuMultiplayerServerBrow = () => {
                       advanced
                     </div>
                   </div>
-                  <div className="self-stretch flex flex-col items-start justify-start gap-[6px] text-base">
+                  <div className="self-stretch flex flex-col  items-start justify-start gap-[6px] text-base">
                     {advancedSettings &&
                       advancedSettings.settings.map((setting, index) => (
                         <div
                           key={index}
-                          className="self-stretch flex flex-col items-start justify-start gap-[3.1999999999999993px]"
+                          className="self-stretch flex flex-col items-start justify-start gap-[3.1999999999999993px]  hover:text-black"
                         >
-                          <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
-                            <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
+                        <div className="hover:bg-white text-white hover:text-black self-stretch h-[25.9px] flex flex-col items-start justify-start pt-0 px-0 pb-[5.899999999999999px] box-border gap-[5.9px] z-[2]">
+
+                          <div className="self-stretch flex  flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
+                            <div className="flex-1 flex flex-row hover:bg-white items-start justify-between gap-[20px]">
                               <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[62px] z-[2]">
                                 {setting.label}
                               </div>
@@ -310,10 +317,11 @@ const MenuMultiplayerServerBrow = () => {
                             </div>
                           </div>
                           <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                        </div>
+                        </div></div>
                       ))}
                   </div>
                 </div>
+
                 <div className="flex-1 flex flex-col items-start justify-start gap-[10.200000000000005px] min-w-[243px] max-w-full">
                   <div className="flex flex-row items-start justify-start py-0 pr-4 pl-[16.5px]">
                     <div className="relative tracking-[0.07em] uppercase font-semibold inline-block min-w-[52px] whitespace-nowrap z-[2]">
@@ -325,15 +333,20 @@ const MenuMultiplayerServerBrow = () => {
                       rulesData.map((rule, index) => (
                         <div
                           key={index}
-                          className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]"
+                          className="hover:bg-white ho self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]"
                         >
-                          <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
+                          <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
+
+                          <div className="flex-1  flex flex-row items-start justify-between gap-[20px]">
                             <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[56px] z-[2]">
                               {rule.label}
                             </div>
                             <div className="w-[27px] relative tracking-[0.04em] uppercase font-medium text-yellow text-right inline-block min-w-[27px] z-[2]">
                               {rule.value}
+
+                              {/* <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" /> */}
                             </div>
+                            {/* <hr className="  inline-block"/> */}
                           </div>
                         </div>
                       ))}

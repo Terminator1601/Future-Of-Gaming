@@ -1,0 +1,13 @@
+.svg-container {
+    width: 24px; /* Adjust as needed */
+    height: 22px; /* Adjust as needed */
+  }
+  
+  #svg-path {
+    transition: fill 0.3s ease;
+  }
+  
+  .svg-container:hover #svg-path {
+    fill: black;
+  }
+  
