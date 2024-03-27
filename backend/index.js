@@ -7,15 +7,43 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Dummy data
-const data = {
-  message: "Hello from backend!",
-  author: "rishi"
-};
+// Dummy settings data
+const settingsData = [
+  {
+    title: "Region",
+    values: [
+      { label: "Region", value: "europe - de" }
+    ]
+  },
+  {
+    title: "Punkbuster",
+    values: [
+      { label: "Punkbuster", value: "on" }
+    ]
+  },
+  {
+    title: "Fairfight",
+    values: [
+      { label: "Fairfight", value: "on" }
+    ]
+  },
+  {
+    title: "Password",
+    values: [
+      { label: "Password", value: "off" }
+    ]
+  },
+  {
+    title: "Preset",
+    values: [
+      { label: "Preset", value: "normal" }
+    ]
+  }
+];
 
 // Routes
-app.get('/api/data', (req, res) => {
-  res.json(data);
+app.get('/api/settings', (req, res) => {
+  res.json(settingsData);
 });
 
 // Start server

@@ -10,7 +10,6 @@ module.exports = {
           "200": "rgba(255, 255, 255, 0.8)",
           "300": "rgba(0, 12, 19, 0.6)",
           "400": "rgba(16, 16, 16, 0.8)",
-          "500": "rgba(16, 16, 16, 0.5)",
         },
         yellow: "#f3f300",
         orange: "#ee930e",
@@ -21,11 +20,11 @@ module.exports = {
       },
     },
     fontSize: {
-      lgi: "19px",
       base: "16px",
       lg: "18px",
       "11xl": "30px",
       "5xl": "24px",
+      lgi: "19px",
       inherit: "inherit",
     },
     screens: {
