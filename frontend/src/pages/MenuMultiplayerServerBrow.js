@@ -58,10 +58,10 @@ const MenuMultiplayerServerBrow = () => {
     }
   };
   return (
-    <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start pt-[36.200000000000045px] px-[3px] pb-[53px] box-border gap-[3.19999999999996px] tracking-[normal] text-left text-[46px] text-white font-rajdhani">
-      <div className="w-[6297.4px] h-[3542.3px] absolute !m-[0] bottom-[-1593.8px] left-[-2241.1px] z-[1] flex items-center justify-center">
+    <div className="w-full relative  bg-white overflow-hidden flex flex-col items-start justify-start pt-[36.200000000000045px] px-[3px] pb-[53px] box-border gap-[3.19999999999996px] tracking-[normal] text-left text-[46px] text-white font-rajdhani">
+      <div className="w-[6297.4px]  h-[3542.3px] absolute !m-[0] bottom-[-1593.8px] left-[-2241.1px] z-[1] flex items-center justify-center">
         <img
-          className="w-full h-full z-[1] object-contain absolute left-[0px] top-[0px] [transform:scale(1.017)]"
+          className="w-full hover:brightness-200 h-full z-[1] object-contain absolute left-[0px] top-[0px] [transform:scale(1.017)]"
           alt=""
           src="/menu--background@2x.png"
         />
@@ -72,20 +72,20 @@ const MenuMultiplayerServerBrow = () => {
           <div className="h-[595.8px] w-[58.1px] flex flex-col items-start justify-start pt-[171.69999999999993px] px-0 pb-0 box-border mq825:hidden mq825:pt-28 mq825:box-border">
             <div className="self-stretch flex-1 flex flex-col items-end justify-start gap-[16.166666666666675px]">
               <img
-                className="w-10 h-12 relative object-cover z-[2]"
+                className="w-10 hover:brightness-150 h-12 relative object-cover z-[2]"
                 loading="lazy"
                 alt=""
                 src="/sidemenu@2x.png"
               />
               <img
-                className="w-10 h-12 relative object-cover z-[2]"
+                className="w-10 hover:brightness-150 h-12 relative object-cover z-[2]"
                 loading="lazy"
                 alt=""
                 src="/sidemenu-1@2x.png"
               />
               <div className="self-stretch h-12 relative z-[2]">
                 <img
-                  className="absolute h-full w-[68.85%] top-[0%] right-[0%] bottom-[0%] left-[31.15%] max-w-full overflow-hidden max-h-full object-cover"
+                  className="absolute hover:brightness-150 h-full w-[68.85%] top-[0%] right-[0%] bottom-[0%] left-[31.15%] max-w-full overflow-hidden max-h-full object-cover"
                   loading="lazy"
                   alt=""
                   src="/sidemenu--game@2x.png"
@@ -94,14 +94,14 @@ const MenuMultiplayerServerBrow = () => {
               </div>
               <div className="flex-1 flex flex-col items-end justify-start py-0 pr-0 pl-[19px] gap-[19.89999999999999px]">
                 <img
-                  className="w-10 h-12 relative object-cover z-[2]"
+                  className="w-10 hover:brightness-150 h-12 relative object-cover z-[2]"
                   loading="lazy"
                   alt=""
                   src="/sidemenu-2@2x.png"
                 />
                 <div className="flex-1 flex flex-row items-start justify-start pt-0 px-0 pb-[8.000000000000014px]">
                   <img
-                    className="h-10 w-10 relative object-cover z-[2]"
+                    className="h-10 hover:brightness-150 w-10 relative object-cover z-[2]"
                     loading="lazy"
                     alt=""
                     src="/sidemenu-3@2x.png"
@@ -109,7 +109,7 @@ const MenuMultiplayerServerBrow = () => {
                 </div>
                 <div className="h-11 flex flex-row items-start justify-end pt-0 pb-[11.70000000000001px] pr-[3.800000000000068px] pl-1 box-border">
                   <img
-                    className="h-[32.3px] w-[32.3px] relative z-[2]"
+                    className="h-[32.3px] hover:brightness-150 w-[32.3px] relative z-[2]"
                     loading="lazy"
                     alt=""
                     src="/sidemenu-4.svg"
@@ -117,10 +117,10 @@ const MenuMultiplayerServerBrow = () => {
                 </div>
                 <div className="flex flex-row items-start justify-end py-0 px-1">
                   <div className="h-[31.9px] w-8 relative z-[2]">
-                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] opacity-[0.5]">
-                      <div className="absolute h-[50.16%] w-full top-[0%] right-[0%] bottom-[49.84%] left-[0%] bg-white" />
-                      <div className="absolute h-[12.54%] w-full top-[62.7%] right-[0%] bottom-[24.76%] left-[0%] bg-white" />
-                      <div className="absolute h-[12.54%] w-full top-[87.77%] right-[0%] bottom-[-0.31%] left-[0%] bg-white" />
+                    <div className="absolute  h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] opacity-[0.5]">
+                      <div className="absolute h-[50.16%] hover:brightness-150 w-full top-[0%] right-[0%] bottom-[49.84%] left-[0%] bg-white" />
+                      <div className="absolute h-[12.54%] hover:brightness-150 w-full top-[62.7%] right-[0%] bottom-[24.76%] left-[0%] bg-white" />
+                      <div className="absolute h-[12.54%] hover:brightness-150 w-full top-[87.77%] right-[0%] bottom-[-0.31%] left-[0%] bg-white" />
                     </div>
                   </div>
                 </div>
