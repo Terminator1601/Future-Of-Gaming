@@ -1,23 +1,24 @@
 import Invite from "../components/Invite";
 import FunctionLinker from "../components/FunctionLinker";
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
+// import axios from 'axios';
 
 const MenuMultiplayerServerBrow = () => {
-  const [settingsData, setSettingsData] = useState(null);
+  const [apiData, setApiData] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/api/settings"); // Replace 'your_api_endpoint' with your actual API endpoint
-        setSettingsData(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/settings');
+      const data = await response.json();
+      setApiData(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start pt-[36.200000000000045px] px-[3px] pb-[53px] box-border gap-[3.19999999999996px] tracking-[normal] text-left text-[46px] text-white font-rajdhani">
       <div className="w-[6297.4px] h-[3542.3px] absolute !m-[0] bottom-[-1593.8px] left-[-2241.1px] z-[1] flex items-center justify-center">
@@ -222,40 +223,35 @@ const MenuMultiplayerServerBrow = () => {
               </div>
               <div className="w-[1027.9px] flex flex-row items-start justify-start gap-[27.84999999999998px] max-w-full mq1125:flex-wrap">
                 <div className="flex-1 flex flex-col items-start justify-start gap-[9.900000000000002px] min-w-[243px] max-w-full">
-                  {settingsData && (
-                    <div className="flex flex-col items-start justify-start gap-[9.900000000000002px] min-w-[243px] max-w-full">
-                      {settingsData.map((item, index) => (
-                        <div
-                          key={index}
-                          className="flex flex-row items-start justify-start py-0 px-[15px]"
-                        >
-                          {/* <div className="relative tracking-[0.07em] uppercase font-semibold inline-block min-w-[79px] shrink-0 [debug_commit:f6aba90] z-[2]">
-                            {item.title}
-                          </div> */}
-                          <div className="self-stretch flex flex-col items-start justify-start gap-[5.140000000000001px] shrink-0 [debug_commit:f6aba90] text-base">
-                            {item.values.map((value, i) => (
-                              <div
-                                key={i}
-                                className="self-stretch flex flex-row items-start justify-start py-0 pr-6 pl-[16.5px]"
-                              >
-                                <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                                  <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[92px] z-[2]">
-                                    {value.label}
-                                  </div>
-                                  <div className="w-5 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
-                                    {value.value}
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                            <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                          </div>
-                        </div>
-                      ))}
+                  {apiData && (
+                    <div className="flex flex-row items-start justify-start py-0 px-[15px]">
+                      <div className="relative tracking-[0.07em] uppercase font-semibold inline-block min-w-[79px] shrink-0 [debug_commit:f6aba90] z-[2]">
+                        {apiData.title}
+                      </div>
                     </div>
                   )}
+                  {apiData &&
+                    apiData.settings.map((setting, index) => (
+                      <div
+                        key={index}
+                        className="self-stretch flex flex-col items-start justify-start gap-[5.140000000000001px] shrink-0 [debug_commit:f6aba90] text-base"
+                      >
+                        <div className="self-stretch h-[25.9px] flex flex-col items-start justify-start pt-0 px-0 pb-[5.899999999999999px] box-border gap-[5.9px] z-[2]">
+                          <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.59999999999991px]">
+                            <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
+                              <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[51px]">
+                                {setting.label}
+                              </div>
+                              <div className="relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[87px]">
+                                {setting.value}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="self-stretch h-px relative box-border opacity-[0.1] border-t-[1px] border-solid border-white" />
+                        </div>
+                      </div>
+                    ))}
                 </div>
-
                 <div className="flex-1 flex flex-col items-start justify-start gap-[10.200000000000005px] min-w-[243px] max-w-full">
                   <div className="flex flex-row items-start justify-start py-0 px-[15px]">
                     <div className="relative tracking-[0.07em] uppercase font-semibold inline-block min-w-[88px] z-[2]">
