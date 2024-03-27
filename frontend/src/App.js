@@ -1,27 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from "react";
+import {
+  Routes,
+  Route,
+  useNavigationType,
+  useLocation,
+} from "react-router-dom";
+import MenuMultiplayerServerBrow from "./pages/MenuMultiplayerServerBrow";
 
 function App() {
-  const [data, setData] = useState('');
+  const action = useNavigationType();
+  const location = useLocation();
+  const pathname = location.pathname;
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios.get('http://localhost:5000/api/data');
-        setData(result.data.message);
-      } catch (error) {
-        console.error('Error fetching data:', error);
+    if (action !== "POP") {
+      window.scrollTo(0, 0);
+    }
+  }, [action, pathname]);
+
+  useEffect(() => {
+    let title = "";
+    let metaDescription = "";
+
+    switch (pathname) {
+      case "/":
+        title = "";
+        metaDescription = "";
+        break;
+    }
+
+    if (title) {
+      document.title = title;
+    }
+
+    if (metaDescription) {
+      const metaDescriptionTag = document.querySelector(
+        'head > meta[name="description"]'
+      );
+      if (metaDescriptionTag) {
+        metaDescriptionTag.content = metaDescription;
       }
-    };
-    fetchData();
-  }, []);
+    }
+  }, [pathname]);
 
   return (
-    <div>
-      <h1>Data from Backend:</h1>
-      <p>{data}</p>
-    </div>
+    <Routes>
+      <Route path="/" element={<MenuMultiplayerServerBrow />} />
+    </Routes>
   );
 }
-
 export default App;
