@@ -304,20 +304,20 @@ const MenuMultiplayerServerBrow = () => {
                           key={index}
                           className="self-stretch flex flex-col items-start justify-start gap-[3.1999999999999993px]  hover:text-black"
                         >
-                        <div className="hover:bg-white text-white hover:text-black self-stretch h-[25.9px] flex flex-col items-start justify-start pt-0 px-0 pb-[5.899999999999999px] box-border gap-[5.9px] z-[2]">
-
-                          <div className="self-stretch flex  flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
-                            <div className="flex-1 flex flex-row hover:bg-white items-start justify-between gap-[20px]">
-                              <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[62px] z-[2]">
-                                {setting.label}
-                              </div>
-                              <div className="w-5 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
-                                {setting.value}
+                          <div className="hover:bg-white text-white hover:text-black self-stretch h-[25.9px] flex flex-col items-start justify-start pt-0 px-0 pb-[5.899999999999999px] box-border gap-[5.9px] z-[2]">
+                            <div className="self-stretch flex  flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
+                              <div className="flex-1 flex flex-row hover:bg-white items-start justify-between gap-[20px]">
+                                <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[62px] z-[2]">
+                                  {setting.label}
+                                </div>
+                                <div className="w-5 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
+                                  {setting.value}
+                                </div>
                               </div>
                             </div>
+                            <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
                           </div>
-                          <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                        </div></div>
+                        </div>
                       ))}
                   </div>
                 </div>
@@ -333,20 +333,20 @@ const MenuMultiplayerServerBrow = () => {
                       rulesData.map((rule, index) => (
                         <div
                           key={index}
-                          className="hover:bg-white ho self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]"
+                          className="self-stretch flex flex-col items-start justify-start gap-[3.1999999999999993px]  hover:text-black"
                         >
-                          <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-
-                          <div className="flex-1  flex flex-row items-start justify-between gap-[20px]">
-                            <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[56px] z-[2]">
-                              {rule.label}
+                          <div className="hover:bg-white text-white hover:text-black self-stretch h-[25.9px] flex flex-col items-start justify-start pt-0 px-0 pb-[5.899999999999999px] box-border gap-[5.9px] z-[2]">
+                            <div className="self-stretch flex  flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
+                              <div className="flex-1 flex flex-row hover:bg-white items-start justify-between gap-[20px]">
+                                <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[62px] z-[2]">
+                                  {rule.label}
+                                </div>
+                                <div className="w-5 text-yellow relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
+                                  {rule.value}
+                                </div>
+                              </div>
                             </div>
-                            <div className="w-[27px] relative tracking-[0.04em] uppercase font-medium text-yellow text-right inline-block min-w-[27px] z-[2]">
-                              {rule.value}
-
-                              {/* <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" /> */}
-                            </div>
-                            {/* <hr className="  inline-block"/> */}
+                            <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
                           </div>
                         </div>
                       ))}
