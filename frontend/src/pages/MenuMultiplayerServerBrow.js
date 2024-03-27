@@ -12,9 +12,43 @@ const MenuMultiplayerServerBrow = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/settings');
+      const response = await fetch("http://localhost:5000/api/settings/basic");
+      const settingsData = await response.json();
+      setApiData(settingsData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const [advancedSettings, setAdvancedSettings] = useState(null);
+
+  useEffect(() => {
+    fetchAdvancedSettings();
+  }, []);
+
+  const fetchAdvancedSettings = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/settings/advanced"
+      );
+      const advancedData = await response.json();
+      setAdvancedSettings(advancedData);
+    } catch (error) {
+      console.error("Error fetching advanced settings:", error);
+    }
+  };
+
+  const [rulesData, setRulesData] = useState([]);
+
+  useEffect(() => {
+    fetchRulesData();
+  }, []);
+
+  const fetchRulesData = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/settings/rulesData');
       const data = await response.json();
-      setApiData(data);
+      setRulesData(data.settings); // Assuming data structure includes a 'settings' property
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -259,73 +293,25 @@ const MenuMultiplayerServerBrow = () => {
                     </div>
                   </div>
                   <div className="self-stretch flex flex-col items-start justify-start gap-[6px] text-base">
-                    <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
-                      <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                        <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[62px] z-[2]">
-                          minimap
-                        </div>
-                        <div className="w-5 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
-                          on
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-col items-start justify-start gap-[3.1999999999999993px]">
-                      <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                      <div className="self-stretch flex flex-col items-start justify-start gap-[5.899999999999999px]">
-                        <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
-                          <div className="flex-1 flex flex-row items-start justify-between shrink-0 [debug_commit:f6aba90] gap-[20px]">
-                            <div className="relative tracking-[0.04em] leading-[20.8px] uppercase font-medium z-[2]">
-                              only squad leader spawn
-                            </div>
-                            <div className="w-[26px] relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[26px] z-[2]">
-                              off
+                    {advancedSettings &&
+                      advancedSettings.settings.map((setting, index) => (
+                        <div
+                          key={index}
+                          className="self-stretch flex flex-col items-start justify-start gap-[3.1999999999999993px]"
+                        >
+                          <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
+                            <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
+                              <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[62px] z-[2]">
+                                {setting.label}
+                              </div>
+                              <div className="w-5 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
+                                {setting.value}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="self-stretch flex flex-col items-start justify-start gap-[3.299999999999997px] shrink-0 [debug_commit:f6aba90]">
                           <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                          <div className="self-stretch flex flex-col items-start justify-start gap-[5.8999999999999915px]">
-                            <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
-                              <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                                <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[67px] z-[2]">
-                                  vehicles
-                                </div>
-                                <div className="w-5 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
-                                  on
-                                </div>
-                              </div>
-                            </div>
-                            <div className="self-stretch flex flex-col items-start justify-start gap-[3.200000000000003px]">
-                              <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                              <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
-                                <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                                  <div className="relative tracking-[0.04em] leading-[20.8px] uppercase font-medium inline-block min-w-[106px] z-[2]">
-                                    team balance
-                                  </div>
-                                  <div className="w-5 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
-                                    on
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-col items-start justify-start gap-[3.200000000000003px]">
-                      <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                      <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.500000000000057px]">
-                        <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                          <div className="relative tracking-[0.04em] leading-[20.8px] uppercase font-medium z-[2]">
-                            minimap spotting
-                          </div>
-                          <div className="w-5 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[20px] z-[2]">
-                            on
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
+                      ))}
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col items-start justify-start gap-[10.200000000000005px] min-w-[243px] max-w-full">
@@ -335,69 +321,22 @@ const MenuMultiplayerServerBrow = () => {
                     </div>
                   </div>
                   <div className="self-stretch flex flex-col items-start justify-start gap-[5.959999999999998px] text-base">
-                    <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]">
-                      <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                        <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[56px] z-[2]">
-                          tickets
-                        </div>
-                        <div className="w-[27px] relative tracking-[0.04em] uppercase font-medium text-yellow text-right inline-block min-w-[27px] z-[2]">
-                          400
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-col items-start justify-start gap-[3.1999999999999993px]">
-                      <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                      <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]">
-                        <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                          <div className="relative tracking-[0.04em] leading-[20.8px] uppercase font-medium z-[2]">
-                            vehicle spawn delay
-                          </div>
-                          <div className="w-[17px] relative tracking-[0.04em] uppercase font-medium text-yellow text-right inline-block min-w-[17px] z-[2]">
-                            25
+                    {rulesData &&
+                      rulesData.map((rule, index) => (
+                        <div
+                          key={index}
+                          className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]"
+                        >
+                          <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
+                            <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[56px] z-[2]">
+                              {rule.label}
+                            </div>
+                            <div className="w-[27px] relative tracking-[0.04em] uppercase font-medium text-yellow text-right inline-block min-w-[27px] z-[2]">
+                              {rule.value}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-col items-start justify-start gap-[3.299999999999997px]">
-                      <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                      <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]">
-                        <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                          <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[113px] z-[2]">
-                            bullet damage
-                          </div>
-                          <div className="w-6 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[24px] z-[2]">
-                            100
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-col items-start justify-start gap-[3.200000000000003px]">
-                      <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                      <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]">
-                        <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                          <div className="relative tracking-[0.04em] uppercase font-medium z-[2]">
-                            kick after team kills
-                          </div>
-                          <div className="w-[9px] relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[9px] z-[2]">
-                            5
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch flex flex-col items-start justify-start gap-[3.200000000000003px]">
-                      <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
-                      <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[23px] pl-[16.5px]">
-                        <div className="flex-1 flex flex-row items-start justify-between gap-[20px]">
-                          <div className="relative tracking-[0.04em] leading-[20.8px] uppercase font-medium inline-block min-w-[110px] z-[2]">
-                            player health
-                          </div>
-                          <div className="w-6 relative tracking-[0.04em] uppercase font-medium text-right inline-block min-w-[24px] z-[2]">
-                            100
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="self-stretch h-px relative box-border opacity-[0.1] z-[2] border-t-[1px] border-solid border-white" />
+                      ))}
                   </div>
                 </div>
               </div>

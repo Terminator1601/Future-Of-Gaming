@@ -3,7 +3,7 @@ const FunctionLinker = () => {
     <div className="flex-1 flex flex-col items-start justify-start gap-[24.59999999999999px] max-w-full text-center text-base text-white font-rajdhani">
       <div className="self-stretch flex flex-row items-start justify-end max-w-full text-left">
         <div className="w-[676.1px] flex flex-col items-start justify-start gap-[5.900000000000006px] max-w-full">
-          <div className="self-stretch flex flex-row items-start justify-start py-0 pr-6 pl-[16.500000000000057px] box-border max-w-full">
+          {/* <div className="self-stretch flex flex-row items-start justify-start py-0 pr-6 pl-[16.500000000000057px] box-border max-w-full">
             <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px]">
               <div className="relative tracking-[0.04em] uppercase font-medium inline-block min-w-[29px] z-[2]">
                 hud
@@ -22,7 +22,7 @@ const FunctionLinker = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="self-stretch flex flex-col items-start justify-start gap-[3.1999999999999886px] max-w-full text-right">
             <div className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[28.10000000000005px] max-w-full">
               <div className="h-px flex-1 relative box-border opacity-[0.1] min-w-[211px] max-w-full z-[2] border-t-[1px] border-solid border-white" />
